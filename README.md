@@ -23,7 +23,7 @@ A step by step series of examples that tell you have to get a development env ru
  Clone the repository from the github :
 
 ```
-git clone ""
+git clone https://github.com/vanithadevig/fizzbuzz.git
 ```
 
  Build the project
