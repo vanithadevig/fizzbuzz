@@ -1,0 +1,72 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "FizzBuzz is a web service to print out a range of numbers.\n            This service would consume an upper boundary as a path parameter, and determine which numbers\n            would print \"Fizz\", \"Buzz\", and \"FizzBuzz\"",
+    "version" : "1.0-SNAPSHOT",
+    "title" : "FizzBuzz as a Service"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "fizzbuzzweb-app",
+  "tags" : [ {
+    "name" : "Fizz Buzz Endpoints"
+  } ],
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/fizzbuzz/{maxValue}" : {
+      "get" : {
+        "tags" : [ "Fizz Buzz Endpoints" ],
+        "summary" : "FizzBuzz Api",
+        "description" : "",
+        "operationId" : "getFizzBuzz",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "maxValue",
+          "in" : "path",
+          "description" : "Max Value",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/FizzBuzzResponse"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "FizzBuzzResponse" : {
+      "type" : "object",
+      "properties" : {
+        "Fizz" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        },
+        "Buzz" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        },
+        "FizzBuzz" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      }
+    }
+  }
+}
