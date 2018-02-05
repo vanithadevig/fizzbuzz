@@ -15,21 +15,27 @@ import java.util.stream.IntStream;
 public class FizzBuzzServiceImpl implements FizzBuzzService {
     private static final Logger LOGGER = LoggerFactory.getLogger(FizzBuzzServiceImpl.class);
 
+    private static final int FIZZ_NUMBER = 3;
+
+    private static final int BUZZ_NUMBER = 5;
+
+    private static final int FIZZBUZZ_NUMBER = 15;
+
     @Override
     public FizzBuzzResponse calculateFizzBuzz(int maxValue) {
         FizzBuzzResponse fizzBuzzResponse = new FizzBuzzResponse();
         IntStream.rangeClosed(1,maxValue).forEach(i -> {
-            if(i % 15 == 0) {
+            if(i % FIZZBUZZ_NUMBER == 0) {
                 fizzBuzzResponse.getFizzs().add(i);
                 fizzBuzzResponse.getBuzzs().add(i);
                 fizzBuzzResponse.getFizzbuzzs().add(i);
-            } else if (i % 3 == 0) {
+            } else if (i % FIZZ_NUMBER == 0) {
                 fizzBuzzResponse.getFizzs().add(i);
-            } else if (i % 5 == 0) {
+            } else if (i % BUZZ_NUMBER == 0) {
                 fizzBuzzResponse.getBuzzs().add(i);
             }
         });
-        LOGGER.info("generated fizzBuzz: {}", fizzBuzzResponse.toString());
+        LOGGER.debug("generated fizzBuzz: {}", fizzBuzzResponse.toString());
         return fizzBuzzResponse;
     }
 }
